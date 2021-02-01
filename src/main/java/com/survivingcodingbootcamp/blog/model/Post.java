@@ -1,6 +1,9 @@
 package com.survivingcodingbootcamp.blog.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Post {
@@ -12,15 +15,32 @@ public class Post {
     private Topic topic;
     @Lob
     private String content;
+    private String author;
+    @ManyToMany
+    private Collection<Hashtag> thisPostsHashtags = new ArrayList<>();
 
-    protected Post() {
+
+    public Post(String title, String author, Topic topic, String content, Hashtag...hashtags) {
+        this.title = title;
+        this.author = author;
+        this.topic = topic;
+        this.content = content;
+        this.thisPostsHashtags = List.of(hashtags);
     }
-
+    public Post(String title, String author, Topic topic, String content) {
+        this.title = title;
+        this.author = author;
+        this.topic = topic;
+        this.content = content;
+    }
     public Post(String title, Topic topic, String content) {
         this.title = title;
         this.topic = topic;
         this.content = content;
     }
+    protected Post() {
+    }
+
 
     public Long getId() {
         return id;
@@ -30,6 +50,10 @@ public class Post {
         return title;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
     public Topic getTopic() {
         return topic;
     }
@@ -37,6 +61,19 @@ public class Post {
     public String getContent() {
         return content;
     }
+
+    public Collection<Hashtag> getThisPostsHashtags() {
+        return thisPostsHashtags;
+    }
+
+    public void addHashtagToThisPost(Hashtag inHashtag){
+        thisPostsHashtags.add(inHashtag);
+    }
+
+    public boolean checkForExistingHashtag(Post inPost, String newHashtagsName){
+        return this.thisPostsHashtags.stream().map(Hashtag::getHashtagName).filter(newHashtagsName::equals).findFirst().isPresent();
+    }
+
 
     @Override
     public String toString() {

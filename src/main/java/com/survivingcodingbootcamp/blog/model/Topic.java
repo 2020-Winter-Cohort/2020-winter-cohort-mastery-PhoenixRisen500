@@ -1,9 +1,7 @@
 package com.survivingcodingbootcamp.blog.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Entity
@@ -13,14 +11,21 @@ public class Topic {
     private Long id;
     private String name;
     @OneToMany(mappedBy = "topic")
-    private Collection<Post> posts;
+    private Collection<Post> posts = new ArrayList<>();
 
-    protected Topic() {
-    }
 
     public Topic(String name) {
         this.name = name;
     }
+
+    protected Topic() {
+    }
+
+
+    public void addPostToThisTopic(Post inPost){
+        posts.add(inPost);
+    }
+
 
     public Long getId() {
         return id;
@@ -33,6 +38,8 @@ public class Topic {
     public Collection<Post> getPosts() {
         return posts;
     }
+
+
 
     @Override
     public String toString() {

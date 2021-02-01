@@ -15,21 +15,50 @@
     <header class="header">
         <h1 class="header__title">Surviving Coding Boot Camp</h1>
         <nav class="header__nav">
-            <div class="header__nav-item"><a href="/" class="header__nav-link">Home</a></div>
-            <div class="header__nav-item"><a href="/hashtags" class="header__nav-link">Hashtags</a></div>
+            <a href="/" class="header__nav-link">Home</a>
+            <a href="/hashtag/allHashtags" class="header__nav-link">All Hashtags</a>
+            <a href="/topics" class="header__nav-link">All Topics</a>
         </nav>
     </header>
     <main class="main-content">
-        <section class="main-content__topic topic">
-            <h2 th:text="${topic.name}" class="topic__title main-content__title">
+        <br><br>
+        <section class="main-content__topic topic" style="position: relative; left: 25px;">
+            <h2 th:text="'Topic: ' + ${topic.name}" class="topic__title main-content__title">
                 Topic
             </h2>
-            <nav class="main-content__nav posts__nav">
-                <div th:each="post: ${topic.posts}">
-                    <a th:text="${post.title}" th:href="'/posts/'+${post.id}" href="#"
-                       class="posts__nav-link"></a>
+
+            <br>
+            Posts: <ul>
+            <span th:each="onePost:${allPostsForThisTopic}">
+                <li><a th:text="${onePost.title} + ', by ' + ${onePost.author}" th:href="'/post/'+${onePost.id}"></a></li>
+            </span></ul>
+                <br>
+                <div class="white_box_with_shadow">
+                    <form th:action="@{addPost}" method="POST" action="addPost" modelAttribute="ADDPOST">
+                        <label>Add a New Post for This Topic: </label><br>
+                        <br>
+
+                        Title: <br>
+                        <input type="text" name="newPostTitle"><br>
+                        <br>
+
+                        Author: <br>
+                        <input type="text" name="newPostAuthor"><br>
+                        <br>
+
+                        Content: <br>
+                        <textarea type="text" rows="5" cols="100" name="newPostContent"></textarea><br>
+                        <br>
+
+                        Hashtags: <br>
+                        <textarea type="text" rows="2" cols="100" name="newPostHashtags"></textarea><br>
+                        <br>
+
+                        <input name="id" th:value="${topic.id}" type="hidden">
+                        <button type="submit">Submit</button>
+                    </form>
                 </div>
-            </nav>
+            </div>
         </section>
     </main>
 </div>

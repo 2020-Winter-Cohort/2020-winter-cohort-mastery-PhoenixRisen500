@@ -2,12 +2,14 @@ package com.survivingcodingbootcamp.blog.storage;
 
 import com.survivingcodingbootcamp.blog.model.Post;
 import com.survivingcodingbootcamp.blog.storage.repository.PostRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PostStorageJpaImpl implements PostStorage {
+public class  PostStorageJpaImpl implements PostStorage {
     private PostRepository postRepo;
 
+    @Autowired
     public PostStorageJpaImpl(PostRepository postRepo) {
         this.postRepo = postRepo;
     }

@@ -6,9 +6,22 @@
 .header{
     padding: 10px;
 }
+
+.header__nav{
+    max-width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.post {
+    padding: 10px;
+}
+
 .topics{
     padding: 10px;
 }
+
 .topics__nav{
     display:flex;
     flex-direction: column;
@@ -16,12 +29,15 @@
 .welcome{
     padding: 10px;
 }
-@media screen and (min-width:1000px){
+@media screen and (min-width:800px){
     .container{
         width: 85%;
-        max-width: 1400px;
-        min-width:1000px;
+        max-width: 1000px;
+        min-width:800px;
         margin: 15px auto;
     }
-
 }
+
+/*.post__box{*/
+/*    background-color: rgba(255, 255, 255, 1);*/
+/*}*/
