@@ -18,7 +18,6 @@
     <header class="header">
         <h1 class="header__title">Surviving Coding Boot Camp</h1>
         <nav class="header__nav">
-            <a href="/" class="header__nav-link">Home</a>
             <a href="/hashtag/allHashtags" class="header__nav-link">All Hashtags</a>
             <a href="/topics" class="header__nav-link">All Topics</a>
         </nav>
@@ -27,24 +26,25 @@
     <main class="main-content">
         <p class="welcome">Welcome to Surviving Coding Boot Camp, a blog dedicated to helping you get through boot camp and on to the
             other side.</p>
+        
         <section class="main-content__topics topics">
-
-            <div class="white_box_with_shadow">
+        </section>
+            <div class="box_with_shadow">
                 <span class="topics__title main-content__title">Topics</span><br>
                 <span th:each="topic: ${topics}">
                     <a th:text="${topic.name}"
-                       th:href="'/topic/'+${topic.id}"
+                       th:href="'/topics/'+${topic.id}"
                        class="topics__nav-link"></a><br>
                 </span>
             </div>
 
             <br><br>
 
-            <div class="white_box_with_shadow">
+            <div class="box_with_shadow">
                 <span class="posts__title main-content__title">Posts</span><br>
                 <span th:each="onePost: ${allPosts}">
                     <a
-                   th:href="${'post/' + onePost.id}"
+                   th:href="${'posts/' + onePost.id}"
                    th:text="${onePost.title} + ', by ' + ${onePost.author}"
                    class="topics__nav-link"></a><br>
                 </span>
@@ -52,7 +52,7 @@
 
             <br><br>
 
-            <div class="white_box_with_shadow">
+            <div class="box_with_shadow">
                 <span class="hashtags__title main-content__title">All Hashtags: </span><br>
                 <span th:each="oneHashtag:${allHashtags}">
                     <a th:text="'#' + ${oneHashtag.hashtagName}"

@@ -22,19 +22,8 @@ public class Hashtag {
 
     }
 
-    public void setHashtagName(String hashtagName) {
-        this.hashtagName = hashtagName;
-    }
     public void addPostToThisHashtag(Post inPost){
         thisHashtagsPosts.add(inPost);
-    }
-    public void addPostToThisHashtag(Post...posts){
-        for(Post i : posts) {
-            thisHashtagsPosts.add(i);
-        }
-    }
-    public void addTopicToThisHashtag(Topic inTopic){
-        thisHashtagsTopics.add(inTopic);
     }
 
     public Long getId() {

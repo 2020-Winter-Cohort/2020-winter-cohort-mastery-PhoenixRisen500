@@ -23,11 +23,20 @@
                 </nav>
             </header>
             <main class="main-content">
-                <div class="white_box_with_shadow">
+                <div class="box_with_shadow">
                     <span th:text="'Hashtag: #'+${thisHashtagsName}"></span><br><ul>
+
+                <ul>
                     <span class="main-content__post post" th:each="onePost:${thisHashtagsPosts}">
-                        <li><a th:text="${onePost.title}" th:href="${'/post/' + onePost.id}"></a></li>
-                    </span></ul>
+                        <li><a th:text="${onePost.title}" th:href="${'/posts/' + onePost.id}"></a></li>
+                    </span>
+                </ul>
+
+                <ul>
+                    <span th:each="oneTopic:${allTopics}">
+                        <li><a th:text="${oneTopic.name}" th:href="'topics/' + ${oneTopic.id}" ></a></li>
+                    </span>
+                </ul>
                 </div>
             </main>
         </div>

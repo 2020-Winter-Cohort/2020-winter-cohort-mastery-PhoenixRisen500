@@ -23,12 +23,12 @@
     </header>
     <main class="main-content">
 
-        <div class="white_box_with_shadow">
+        <div class="box_with_shadow">
             <div class="box-with-rounded-corners" style="padding-bottom: 2px;">
                 <span style="font-size: 23px; font-weight: bold;">All Topics: </span><br><ul>
                 <span th:each="oneTopic:${allTopics}">
                         <li><a th:text="${oneTopic.name}"
-                           th:href="'topic/' + ${oneTopic.id}"
+                           th:href="'topics/' + ${oneTopic.id}"
                         ></a></li>
                     </span></ul>
             </div>

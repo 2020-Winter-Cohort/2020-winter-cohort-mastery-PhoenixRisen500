@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/topics")
 public class TopicController {
     private TopicStorage topicStorage;
     private PostStorage postStorage;
@@ -25,14 +26,14 @@ public class TopicController {
         this.topicStorage = topicStorage;
     }
 
-    @GetMapping("/topic/{id}")
+    @GetMapping("/{id}")
     public String displaySingleTopic(@PathVariable long id, Model model) {
         model.addAttribute("topic", topicStorage.retrieveSingleTopic(id));
         model.addAttribute("allPostsForThisTopic", topicStorage.retrieveSingleTopic(id).getPosts());
         return "single-topic-template";
     }
 
-    @RequestMapping("/topics")
+    @RequestMapping("")
     public String displayAllTopics(Model model){
         model.addAttribute("allTopics", topicStorage.retrieveAllTopics());
         return "all-topics-template";

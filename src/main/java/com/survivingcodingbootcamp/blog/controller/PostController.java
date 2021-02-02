@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @Controller
+@RequestMapping("/posts")
 public class PostController {
     private TopicStorage topicStorage;
     private PostStorage postStorage;
@@ -31,21 +32,19 @@ public class PostController {
     }
 
 
-    @RequestMapping("/posts")
+    @RequestMapping("")
     public String displayAllPosts(Model model){
         model.addAttribute("allPosts", postStorage.retrieveAllPosts());
         return "allPosts";
     }
 
-    @GetMapping("/post/{id}")
+    @GetMapping("/{id}")
     public String displaySinglePost(@PathVariable long id, Model model) {
         model.addAttribute("post", postStorage.retrievePostById(id));
-//        model.addAttribute()
         return "single-post-template";
     }
 
-
-    @PostMapping(value="/topic/addPost")
+    @PostMapping(value="addPost")
     public String addPost(Model model,
                           @RequestParam Long id,
                           @RequestParam String newPostTitle,
@@ -83,9 +82,5 @@ public class PostController {
             newHashtag.addPostToThisHashtag(newPost);
         }
         return "redirect:/";
-    }
-
-    private void addHashtagsToNewPost(Long id, String inOneRawStringOfAllHashtagsToAdd){
-
     }
 }

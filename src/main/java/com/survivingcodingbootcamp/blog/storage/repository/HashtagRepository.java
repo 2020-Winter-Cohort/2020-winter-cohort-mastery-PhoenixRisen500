@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface HashtagRepository extends CrudRepository<Hashtag, Long> {
-    Hashtag findByHashtagName(String hashtagName);
 }

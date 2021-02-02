@@ -30,11 +30,11 @@
             <br>
             Posts: <ul>
             <span th:each="onePost:${allPostsForThisTopic}">
-                <li><a th:text="${onePost.title} + ', by ' + ${onePost.author}" th:href="'/post/'+${onePost.id}"></a></li>
+                <li><a th:text="${onePost.title} + ', by ' + ${onePost.author}" th:href="'/posts/'+${onePost.id}"></a></li>
             </span></ul>
                 <br>
-                <div class="white_box_with_shadow">
-                    <form th:action="@{addPost}" method="POST" action="addPost" modelAttribute="ADDPOST">
+                <div class="box_with_shadow">
+                    <form th:action="@{/posts/addPost}" method="POST" modelAttribute="ADDPOST">
                         <label>Add a New Post for This Topic: </label><br>
                         <br>
 

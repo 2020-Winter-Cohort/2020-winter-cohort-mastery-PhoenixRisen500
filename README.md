@@ -36,7 +36,7 @@ This is a Pass/Fail assignment, the assignment will be considered passing if it 
 - Uses Git and GitHub to push complete assignment to GitHub before due date.
 - The code compiles.  (No red squiggly underlines!)
 - The provided integration tests still pass.
-- All existing request endpoints are still reachable through the browser.
+- All existing request endpoints are still reachable through the browser.    
 - All three of the required tasks are complete.
 
 If your project doesn't meet these criteria at the deadline, it will be marked as _Needs Improvement_.

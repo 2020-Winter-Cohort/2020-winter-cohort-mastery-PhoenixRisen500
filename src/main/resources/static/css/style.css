@@ -48,7 +48,7 @@ a:hover{
         font-weight: bold;"
 }
 
-.white_box_with_shadow{
+.box_with_shadow{
     padding: 17px;
     border:1px solid #c4c4c4;
     float:left;

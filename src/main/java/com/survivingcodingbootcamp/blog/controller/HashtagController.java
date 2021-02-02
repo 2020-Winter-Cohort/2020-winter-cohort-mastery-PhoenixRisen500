@@ -33,24 +33,15 @@ public class HashtagController {
         return "single-hashtag-template";
     }
 
-//    @GetMapping("/hashtag/{inHashtagName}")
-//    public String oneHashtagByName(Model model, @PathVariable String inHashtagName){
-//        model.addAttribute("thisHashtagsItems", hashtagStorage.findByHashtagName(inHashtagName));
-//        System.out.println("testing find by hashtagName: " + hashtagStorage.findByHashtagName("tests"));
-//        return "single-hashtag-template";
-//    }
-
     @GetMapping("/hashtag/allHashtags")
     public String allHashtags(Model model){
         model.addAttribute("topics", topicStorage.retrieveAllTopics());
         model.addAttribute("allPosts", postStorage.retrieveAllPosts());
         model.addAttribute("allHashtags", hashtagStorage.retrieveAllHashtags());
-//        model.addAttribute("thisHashtagsItems", hashtagStorage.findByHashtagName(inHashtagName));
-        System.out.println("testing find by hashtagName: " + hashtagStorage.findByHashtagName("java"));
         return "all-hashtags-template";
     }
 
-    @PostMapping(value="/post/addHashtag")
+    @PostMapping(value="/addHashtag")
     public String addHashtagByName(Model model, @RequestParam Long id, @RequestParam String newHashtagsToAdd){
         addHashtags(id, newHashtagsToAdd);
         return "redirect:/hashtag/allHashtags";

@@ -1,11 +1,9 @@
 package com.survivingcodingbootcamp.blog.controller;
 
-import com.survivingcodingbootcamp.blog.model.Post;
 import com.survivingcodingbootcamp.blog.storage.HashtagStorage;
 import com.survivingcodingbootcamp.blog.storage.HashtagStorageJpaImpl;
 import com.survivingcodingbootcamp.blog.storage.PostStorage;
 import com.survivingcodingbootcamp.blog.storage.TopicStorage;
-import com.survivingcodingbootcamp.blog.storage.repository.HashtagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

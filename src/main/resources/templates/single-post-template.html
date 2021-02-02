@@ -26,8 +26,8 @@
         </header>
         <main class="main-content">
             <section class="main-content__post post">
-                <div class="white_box_with_shadow">
-                    <h3 class="post__topic-title main-content__topic-title"><a th:text="'Topic: '+${post.topic.name}" th:href="'/topic/'+${post.topic.id}" class="main-content__topic-link post__topic-link">Topic</a></h3>
+                <div class="box_with_shadow">
+                    <h3 class="post__topic-title main-content__topic-title"><a th:text="'Topic: '+${post.topic.name}" th:href="'/topics/'+${post.topic.id}" class="main-content__topic-link post__topic-link">Topic</a></h3>
                     <br>
                     <h2 th:text="'Title: ' + ${post.title}" class="post__title main-content__topic-title">Post Title</h2>
                     <br>
@@ -46,7 +46,7 @@
                     </span>
 
                     <br><br>
-                    <form  th:action="@{addHashtag}" method="POST" action="addHashtag" modelAttribute="ADDHASHTAG">
+                    <form  th:action="@{/addHashtag}" method="POST" action="addHashtag" modelAttribute="ADDHASHTAG">
                         <label>Add Hashtags: </label><br>
                         <textarea name="newHashtagsToAdd" cols="25" rows="3"></textarea><br>
                         <input th:name="id" th:value="${post.id}" type="hidden">
