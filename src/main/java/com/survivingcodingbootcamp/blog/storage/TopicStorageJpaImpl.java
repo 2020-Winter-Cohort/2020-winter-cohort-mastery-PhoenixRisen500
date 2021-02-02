@@ -2,12 +2,14 @@ package com.survivingcodingbootcamp.blog.storage;
 
 import com.survivingcodingbootcamp.blog.model.Topic;
 import com.survivingcodingbootcamp.blog.storage.repository.TopicRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class TopicStorageJpaImpl implements TopicStorage {
     private TopicRepository topicRepo;
 
+    @Autowired
     public TopicStorageJpaImpl(TopicRepository topicRepo) {
         this.topicRepo = topicRepo;
     }
